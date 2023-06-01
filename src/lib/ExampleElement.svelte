@@ -3,7 +3,14 @@
 	customElement={{
 		tag: null,
 		shadow: 'none',
+		props: {
+			greetPerson: { reflect: true, attribute: 'greet-person' },
+		},
 	}}
 />
 
-<h1>Hello world!</h1>
+<script>
+	export let greetPerson = 'world';
+</script>
+
+<h1>Hello {greetPerson}!</h1>
