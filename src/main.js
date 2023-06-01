@@ -1,5 +1,12 @@
 import ExampleElement from './lib/ExampleElement.svelte';
+import { create_custom_element } from 'svelte/internal';
 
-// ExampleElement is now a Svelte component and thus not compatible with customElements.define()
-// NOTE: See 'workaround' branch for alternative.
-customElements.define('example-element', ExampleElement);
+customElements.define('example-element',
+	create_custom_element(
+		ExampleElement, // Component constructor
+		{}, // props_definition
+		[], // slots
+		[], // accessors
+		false, // use_shadow_dom
+	)
+);
